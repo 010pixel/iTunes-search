@@ -1,0 +1,14 @@
+    <h1>{{entity}}</h1>
+    <ul ng-show="hasResults" id="itunes-list" class="itunes-list fix-width clearboth {{theme}} {{entity}}">
+    	<li ng-repeat="result in results | filter:keyword">
+            <a href="{{result.collectionViewUrl}}" target="_blank"><img ng-src="{{result.artworkUrl100}}" class="thumb" /></a>
+            <div class="meta">
+                <span class="title" title="{{result.trackName}}">{{result.trackName | limitTo : titleLimit}}</span>
+                <span title="{{result.collectionName}}">{{result.collectionName | limitTo : collectionLimit}}</span>
+                <span class="duration">{{result.trackTimeMillis |  date:"m:ss"}} mins</span><br />
+                <span>By: <a href="{{result.artistViewUrl}}" target="_blank">{{result.artistName}}</a></span>
+                <span>Release date: {{result.releaseDate |  date:"d MMM, yyyy"}}</span>
+                <a href="{{result.previewUrl}}" target="_blank" title="Preview"><img src="images/Media-play-music-icon.png" alt="Preview" /></a>
+            </div>
+        </li>
+    </ul>
